@@ -1,0 +1,6 @@
+#edt_catalog_shop cshoppingmailpanel{
+	-moz-binding: url(binding:modules.shoppingmail.cEditor#cShoppingmailPanel);
+}
+#edt_privatesales_privateshop cshoppingmailpanel{
+	-moz-binding: url(binding:modules.shoppingmail.cEditor#cPSShoppingmailPanel);
+}

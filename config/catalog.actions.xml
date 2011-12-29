@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<actions>
+	<handler event="registerDocumentEditor"><![CDATA[
+		var editor = event.originalTarget;
+		if (editor.documentname === 'shop' || editor.documentname === 'privateshop')
+		{
+			editor.addTab('shoppingmail', "${transui:m.shoppingmail.document.shoppingmail.document-name,ucf,js}", 'shoppingmail');
+		}
+	]]></handler>
+</actions>

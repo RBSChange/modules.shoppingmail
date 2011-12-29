@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+	<module>
+		<enabled>true</enabled>
+		<visible>false</visible>
+		<icon>shoppingmail</icon>
+	</module>
+	
+	<!-- Add this to project.xml in 'config/modules' section for use testing account on 
+		http://dev.shopping-mail.com/service/work_demo.php
+		Sample value: TOKEN=f71b280c91efaba341b654ddfae7d3cd, USER=kassim, PWD=azerty789
+	<shoppingmail>
+		<entry name="test">TOKEN|USER:PWD</entry>
+	</shoppingmail>
+	 -->
+</config>

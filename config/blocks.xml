@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<blocks>
+	<block type="modules_shoppingmail_Tracker" icon="shoppingmail" afterAll="true" />
+</blocks>
