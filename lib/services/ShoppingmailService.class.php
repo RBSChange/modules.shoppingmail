@@ -115,15 +115,31 @@ class shoppingmail_ShoppingmailService extends f_persistentdocument_DocumentServ
 		if (($order instanceof order_persistentdocument_order) &&  $order->getShopId())
 		{
 			$shop = $order->getShop();
+			
 			$document = $this->getByShop($shop);
 			if ($document && $document->getActive())
 			{
 				$params = array(
-					"token"=>$document->getToken(),
-					"order_id"=>$order->getId(),
-					"mail_type"=> ($type === self::TYPE_ORDER) ? 'order': 'shipping',
-					"code"=>time(),
-				);			
+					'token' => $document->getToken(),
+					'order_id' => $order->getId(),
+					'mail_type' => ($type === self::TYPE_ORDER) ? 'order': 'shipping',
+					'code' => time());
+				
+				$billingAddress = $order->getBillingAddress();
+				if ($billingAddress)
+				{
+					$countryCode = $billingAddress->getCountryCode();
+					if ($countryCode)
+					{
+						$params['country'] = $countryCode;
+					}
+				}
+				$customer = $order->getCustomer();
+				if ($customer && $customer->getBirthday())
+				{
+					$params['birthday'] = substr($customer->getBirthday(), 0, 10);
+				}
+			
 				$testData = Framework::getConfigurationValue('modules/shoppingmail/test', false);
 				if ($testData)
 				{
